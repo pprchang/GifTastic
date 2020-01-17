@@ -15,7 +15,10 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-
+    <link
+      href="https://fonts.googleapis.com/css?family=Alex+Brush|Arbutus+Slab&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>GifTastic</title>
   </head>
@@ -24,27 +27,28 @@
     <!--Title-->
     <div class="jumbotron jumbotron-fluid">
       <div class="container text-center">
-        <h1 class="display-4">Exotic Car Giphy</h1>
+        <h1 class="display-1 font-weight-bold">Exotic Car Giphy</h1>
       </div>
     </div>
 
     <!--buttons-->
 
-    <div id="buttonsLocation"></div>
+    <div id="buttonsLocation" align="middle"></div>
     <br />
 
     <!--Search and Submit button-->
+    <div id="inp" align="middle">
+      <input type="text" placeholder="Search here" id="topicSearch" />
+      <br />
+      <button type="submit" class="btn submit btn-success" data="submitButt">
+        Submit
+      </button>
+      <br />
 
-    <input type="text" placeholder="Search here" id="topicSearch" />
-    <br />
-    <button type="submit" class="btn submit btn-success" data="submitButt">
-      Submit
-    </button>
-    <br />
-
-    <!--Gifs display-->
-    <div id="gifsDisplay" class="text-white" align="center"></div>
-    <br />
+      <!--Gifs display-->
+      <div id="gifsDisplay" class="text-white" align="middle"></div>
+      <br />
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

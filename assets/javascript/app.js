@@ -22,7 +22,7 @@ function generateButton() {
   for (var i = 0; i < topics.length; i++) {
     //add class and attr to button
     button = $('<button type=' + 'button' + '>' + topics[i] + '</button>')
-      .addClass('btn btn-info')
+      .addClass('btn btn-dark')
       .attr('data', topics[i]);
     //add and display button
     $('#buttonsLocation').append(button);
