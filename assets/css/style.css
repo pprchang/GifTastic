@@ -1,18 +1,14 @@
-h1 {
-  font-family: 'Alex Brush', cursive;
-}
-
+.jumbotron,
 body {
-  font-family: 'Arbutus Slab', serif;
-  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/d3c0e140374251.5606d92c9b7a2.png');
+  background-image: url('../images/background.jpg');
 }
 
-.btn {
-  margin: 3px;
+#startTitle,
+#resultTitle,
+#question {
+  background-image: url('../images/slide.png');
 }
 
-.submit {
-  background-color: red;
-  color: white;
-  border: 2px solid white;
+img {
+  border-radius: 8px;
 }

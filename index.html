@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -15,48 +14,302 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=Alex+Brush|Arbutus+Slab&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>GifTastic</title>
+    <title>Trivia Game</title>
   </head>
-
   <body>
     <!--Title-->
     <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h1 class="display-1 font-weight-bold">Exotic Car Giphy</h1>
+      <div class="container text-white">
+        <h1 class="display-4 text-center font-weight-bold">
+          Most Bizarre World Record
+        </h1>
+        <p class="lead text-center font-weight-bold">
+          5 Most Bizarre World Record You Never Knew Existed
+        </p>
       </div>
     </div>
-
-    <!--buttons-->
-
-    <div id="buttonsLocation" align="middle"></div>
-    <br />
-
-    <!--Search and Submit button-->
-    <div id="inp" align="middle">
-      <input type="text" placeholder="Search here" id="topicSearch" />
+    <!--Start Slide-->
+    <div
+      id="startTitle"
+      class="carousel-item active bg-secondary text-center text-white p-3"
+      data-interval="100000"
+    >
       <br />
-      <button type="submit" class="btn submit btn-success" data="submitButt">
-        Submit
+      <button id="butt22" type="button" class="btn btn-success">
+        <h1 class="font-weight-bold">Start</h1>
       </button>
       <br />
-
-      <!--Gifs display-->
-      <div id="gifsDisplay" class="text-white" align="middle"></div>
       <br />
+      <h2 class="font-weight-bold">Click START to be AMAZED!!</h2>
     </div>
+
+    <!--Questions Slides-->
+    
+    <div
+      id="carouselExampleFade"
+      class="carousel slide carousel-fade"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div id="question"
+          class="carousel-item active bg-secondary text-center text-white p-3"
+          data-interval="10000"
+        >
+          <h3 class="clock"></h3>
+          <br />
+          <h4 id="ques1"></h4>
+          <br />
+          <button
+            id="butt1"
+            type="button"
+            class="btn btn-primary correct-answer answer-btn1 font-weight-bold"
+          ></button>
+          <button
+            id="butt2"
+            type="button"
+            class="btn btn-success answer-btn1 font-weight-bold"
+          ></button>
+          <button
+            id="butt3"
+            type="button"
+            class="btn btn-info answer-btn1 font-weight-bold"
+          ></button>
+          <br />
+          <br />
+          <button class="butt3 btn btn-danger font-weight-bold" type="button">
+            Done
+          </button>
+          <br />
+          <br />
+          <h6>Question 1 of 5</h6>
+        </div>
+
+        <div id="question"
+          class="carousel-item bg-secondary text-center text-white p-3"
+          data-interval="100000"
+        >
+          <h3 class="clock"></h3>
+          <br />
+          <h4 id="ques2"></h4>
+          <br />
+          <button
+            id="butt4"
+            type="button"
+            class="btn btn-primary answer-btn2 correct-answer font-weight-bold"
+          ></button>
+          <button
+            id="butt5"
+            type="button"
+            class="btn btn-success answer-btn2 font-weight-bold"
+          ></button>
+          <button
+            id="butt6"
+            type="button"
+            class="btn btn-info answer-btn2 font-weight-bold"
+          ></button>
+          <br />
+          <br />
+          <button class="butt3 btn btn-danger font-weight-bold" type="button">
+            Done
+          </button>
+          <br />
+          <br />
+          <h6>Question 2 of 5</h6>
+        </div>
+
+        <div id="question"
+          class="carousel-item bg-secondary text-center text-white p-3"
+          data-interval="100000"
+        >
+          <h3 class="clock"></h3>
+          <br />
+          <h4 id="ques3"></h4>
+          <br />
+          <button
+            id="butt7"
+            type="button"
+            class="btn btn-primary answer-btn3 font-weight-bold"
+          ></button>
+          <button
+            id="butt8"
+            type="button"
+            class="btn btn-success answer-btn3 correct-answer font-weight-bold"
+          ></button>
+          <button
+            id="butt9"
+            type="button"
+            class="btn btn-info answer-btn3 font-weight-bold"
+          ></button>
+          <br />
+          <br />
+          <button class="butt3 btn btn-danger font-weight-bold" type="button">
+            Done
+          </button>
+          <br />
+          <br />
+          <h6>Question 3 of 5</h6>
+        </div>
+
+        <div id="question"
+          class="carousel-item bg-secondary text-center text-white p-3"
+          data-interval="100000"
+        >
+          <h3 class="clock"></h3>
+          <br />
+          <h4 id="ques4"></h4>
+          <br />
+          <button
+            id="butt10"
+            type="button"
+            class="btn btn-primary answer-btn4 correct-answer font-weight-bold"
+          ></button>
+          <button
+            id="butt11"
+            type="button"
+            class="btn btn-success answer-btn4 font-weight-bold"
+          ></button>
+          <button
+            id="butt12"
+            type="button"
+            class="btn btn-info answer-btn4 font-weight-bold"
+          ></button>
+          <br />
+          <br />
+          <button class="butt3 btn btn-danger font-weight-bold" type="button">
+            Done
+          </button>
+          <br />
+          <br />
+          <h6>Question 4 of 5</h6>
+        </div>
+
+        <div id="question"
+          class="carousel-item bg-secondary text-center text-white p-3"
+          data-interval="100000"
+        >
+          <h3 class="clock"></h3>
+          <br />
+          <h4 id="ques5"></h4>
+          <br />
+          <button
+            id="butt13"
+            type="button"
+            class="btn btn-primary answer-btn5 font-weight-bold"
+          ></button>
+          <button
+            id="butt14"
+            type="button"
+            class="btn btn-success answer-btn5 font-weight-bold"
+          ></button>
+          <button
+            id="butt15"
+            type="button"
+            class="btn btn-info answer-btn5 correct-answer font-weight-bold"
+          ></button>
+          <br />
+          <br />
+          <button class="butt3 btn btn-danger font-weight-bold" type="button">
+            Done
+          </button>
+          <br />
+          <br />
+          <h6>Question 5 of 5</h6>
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleFade"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleFade"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    </div>
+
+    <!--Result Page-->
+    <div
+      id="resultTitle"
+      class="carousel-item active bg-secondary text-center text-white p-3"
+      data-interval="100000"
+    >
+      <br />
+      <div><h2 class="font-weight-bold">Your Results:</h2></div>
+      <hr class="bg-white">
+      <br />
+      <h5><div id="Correct"></div></h5>
+      <h5><div id="Incorrect"></div></h5>
+      <h5><div id="Unanswered"></div></h5>
+      <br />
+      <div><h2>Correct Answers:</h2></div>
+      <hr class="bg-white">
+      <br />
+      <div><h4>Farthest arrow shot using feet:</h4></div>
+      <button id="butt1" type="button" class="btn btn-success font-weight-bold">
+        <h5>40ft, 4.64in</h5>
+      </button>
+      <br />
+      <br />
+      <img src="assets/images/arrow.jpg" alt="Farthest Arrow" />
+      <br />
+      <br />
+      <div><h4>Most tattooed man:</h4></div>
+      <button id="butt1" type="button" class="btn btn-success font-weight-bold">
+        <h5>Over 1,000 hours of body modification</h5>
+      </button>
+      <br />
+      <br />
+      <img src="assets/images/tattooed.jpg" alt="Most Tattoeed Man" />
+      <br />
+      <br />
+      <div><h4>Most toothpicks in a bread:</h4></div>
+      <button id="butt1" type="button" class="btn btn-success font-weight-bold">
+        <h5>3,500</h5>
+      </button>
+      <br />
+      <br />
+      <img src="assets/images/toothpick.jpg" alt="Most Toothpick" />
+      <br />
+      <br />
+      <div><h4>Longest hair on a teenager:</h4></div>
+      <button id="butt1" type="button" class="btn btn-success font-weight-bold">
+        <h5>5ft, 7in</h5>
+      </button>
+      <br />
+      <br />
+      <img
+        src="assets/images/longestHair.jpg"
+        alt="Teenage with the Longest Hair"
+      />
+      <br />
+      <br />
+      <div><h5>Largest table tennis/ping pong bat:</h5></div>
+      <button id="butt1" type="button" class="btn btn-success">
+        <h5>11ft, 7.8in tall and 6ft, 7.8in wide</h5>
+      </button>
+      <br />
+      <br />
+      <img src="assets/images/pingpong.jpg" alt="Largest Ping Pong Bat" />
+      <br />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="./assets/javascript/app.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -67,9 +320,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="assets/javascript/app.js"></script>
   </body>
 </html>
