@@ -4,7 +4,7 @@ h1 {
 
 body {
   font-family: 'Arbutus Slab', serif;
-  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/d3c0e140374251.5606d92c9b7a2.png');
+  background-image: url(../images/background.jpg);
 }
 
 .btn {
