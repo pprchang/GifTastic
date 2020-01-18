@@ -1,174 +1,114 @@
-$(document).ready(function() {
-  //======variable=====
-  let time = 30;
-  let intervalId;
-  let rights = 0;
-  let wrong = 0;
-  let unAnswered = 0;
-  let backgrounMusic = new Audio('assets/audio/backgroundmusic.mp3');
+//topics array
+var topics = [
+  'nissan gtr',
+  'lamborghini',
+  'ferrari',
+  'mclaren',
+  'bugatti',
+  'porsche 911',
+  'pagani'
+];
 
-  var answerTracker = [undefined, undefined, undefined, undefined, undefined];
+//variables
+var button;
+var newSearch = '';
+var backgroundMusic = new Audio('assets/audio/backgroundmusic.mp3');
 
-  //========Question array======
-  var questions = [
-    {
-      question: 'Farthest arrow shot using feet:',
-      answerList: ['40ft, 4.64in', '50ft, 5.64in', '35ft, 2.36in']
-    },
-    {
-      question: 'Most tattooed man:',
-      answerList: [
-        'Over 1,000 hours of body modification',
-        '500 hours of body modification',
-        '300 hours of body modification'
-      ]
-    },
-    {
-      question: 'Most toothpicks in a bread:',
-      answerList: ['2,525', '3,500', '1,457']
-    },
-    {
-      question: 'Longest hair on a teenager:',
-      answerList: ['5ft, 7in', '4ft, 6in', '3ft, 7in']
-    },
-    {
-      question: 'Largest table tennis/ping pong bat:',
-      answerList: [
-        '8ft, 8in tall and 5ft, 6in wide',
-        '5ft, 6in tall and 6ft, 4in wide',
-        '11ft, 7.8in tall and 6ft, 7.8in wide'
-      ]
-    }
-  ];
+//function that create buttons for the elements in the topics array
+function generateButton() {
+  //empty previous array so it won't duplicate
+  $('#buttonsLocation').empty();
 
-  //=======================Timmer Function===================//
-
-  //timer countdown
-  function timerStart() {
-    intervalId = setInterval(decrement, 1000);
-    console.log(timerStart);
+  //loops through array to create buttons
+  for (var i = 0; i < topics.length; i++) {
+    //add class and attr to button
+    button = $('<button type=' + 'button' + '>' + topics[i] + '</button>')
+      .addClass('btn btn-dark')
+      .attr('data', topics[i]);
+    //add and display button
+    $('#buttonsLocation').append(button);
   }
+}
 
-  function decrement() {
-    time--;
-    //display timer
-    $('.clock').html('Time Left: ' + time + ' seconds');
+//add click event listener to all buttons
+//this generate gif when the generate button above is click
+$('#buttonsLocation').on('click', '.btn', function() {
+  //grab and storind data value from button
+  var title = $(this).attr('data');
+  backgroundMusic.play();
+  //queryURL
+  var queryURL =
+    'https://api.giphy.com/v1/gifs/search?q=' +
+    title +
+    '&api_key=r0ot9LU3PQGn62ZfxATvuDF7B3RZpeP2';
 
-    if (time === 0) {
-      stop();
-      results();
-    }
-  }
-  //stop timer
-  function stop() {
-    clearInterval(intervalId);
-  }
+  //ajax request
+  $.ajax({
+    url: queryURL,
+    method: 'GET'
+  })
+    //once data is loaded run this function
+    .then(function(response) {
+      console.log(queryURL);
+      console.log(response);
 
-  //=======Button click functions========
-  //on click function to determine which answer was click
-  $('button.answer-btn1').on('click', function(event) {
-    var self = $(this);
-    console.log(self);
-    //set the correct answer to answerTracker array
-    answerTracker[0] = self.hasClass('correct-answer');
-  });
+      //data from ajax request is store in results variable
+      var results = response.data;
 
-  $('button.answer-btn2').on('click', function(event) {
-    var self = $(this);
-    console.log(self);
-    answerTracker[1] = self.hasClass('correct-answer');
-  });
+      //loop through earch result item
+      for (var i = 0; i < results.length; i++) {
+        //creating div tag
+        var carsDiv = $('<div>');
 
-  $('button.answer-btn3').on('click', function(event) {
-    var self = $(this);
-    console.log(self);
-    answerTracker[2] = self.hasClass('correct-answer');
-  });
+        //paragraph tag for rating
+        var p = $('<p>').text('Rating: ' + results[i].rating);
 
-  $('button.answer-btn4').on('click', function(event) {
-    var self = $(this);
-    console.log(self);
-    answerTracker[3] = self.hasClass('correct-answer');
-  });
+        //image tag
+        var carsImage = $('<img>');
 
-  $('button.answer-btn5').on('click', function(event) {
-    var self = $(this);
-    console.log(self);
-    answerTracker[4] = self.hasClass('correct-answer');
-  });
+        //setting attr of the image from the result
+        carsImage.attr('src', results[i].images.fixed_height.url);
+        carsImage.attr('data-still', results[i].images.fixed_height_still.url);
+        carsImage.attr('data-animate', results[i].images.fixed_height.url);
+        carsImage.attr('data-state', 'still');
+        carsImage.addClass('gif');
 
-  //=====Result function and display to html======
+        //appending paragraph and image tag to the carsDiv
+        carsDiv.append(p);
+        carsDiv.append(carsImage);
 
-  function results() {
-    //loop through the answerTracker array to determine if choosen answer was correct, incorrect or unaswered
-    for (var i = 0; i < answerTracker.length; i++) {
-      if (answerTracker[i] == true) {
-        rights++;
+        //prepending carsDiv to HTML
+        $('#gifsDisplay').prepend(carsDiv);
       }
-      if (answerTracker[i] == false) {
-        wrong++;
-      }
-      if (answerTracker[i] == undefined) {
-        unAnswered++;
-      }
-    }
-
-    //show result page and display results to result page
-    $('#resultTitle').show();
-    $('#carouselExampleFade').hide();
-    $('#Correct').html('Correct: ' + rights);
-    $('#Incorrect').html('Incorrect: ' + wrong);
-    $('#Unanswered').html('Unanswered: ' + unAnswered);
-  }
-
-  //============================Game Start===========
-
-  //hide the question slides and result page
-  $('#carouselExampleFade').hide();
-  $('#resultTitle').hide();
-
-  //function to start game
-  $('#butt22').click(function() {
-    $('#startTitle').hide();
-    backgrounMusic.play();
-    $('#carouselExampleFade').show();
-  });
-
-  //display question and answer to html
-  $('#ques1').text(questions[0].question);
-  $('#butt1').text(questions[0].answerList[0]);
-  $('#butt2').text(questions[0].answerList[1]);
-  $('#butt3').text(questions[0].answerList[2]);
-
-  $('#ques2').text(questions[1].question);
-  $('#butt4').text(questions[1].answerList[0]);
-  $('#butt5').text(questions[1].answerList[1]);
-  $('#butt6').text(questions[1].answerList[2]);
-
-  $('#ques3').text(questions[2].question);
-  $('#butt7').text(questions[2].answerList[0]);
-  $('#butt8').text(questions[2].answerList[1]);
-  $('#butt9').text(questions[2].answerList[2]);
-
-  $('#ques4').text(questions[3].question);
-  $('#butt10').text(questions[3].answerList[0]);
-  $('#butt11').text(questions[3].answerList[1]);
-  $('#butt12').text(questions[3].answerList[2]);
-
-  $('#ques5').text(questions[4].question);
-  $('#butt13').text(questions[4].answerList[0]);
-  $('#butt14').text(questions[4].answerList[1]);
-  $('#butt15').text(questions[4].answerList[2]);
-
-  //display timer
-  $('.clock').html('Time Left: ' + time + ' seconds');
-
-  //start timer
-  timerStart();
-
-  //when done button is click it provide the result
-  $('.butt3').click(function() {
-    stop();
-    results();
-  });
+    });
 });
+
+//Pause and Animate function
+$('#gifsDisplay').on('click', '.gif', function(event) {
+  //get the state of gif
+  var state = $(this).attr('data-state');
+
+  //base on the gif state...when click it toogle between animate and still
+  if (state === 'still') {
+    $(this).attr('src', $(this).attr('data-animate'));
+    $(this).attr('data-state', 'animate');
+  } else {
+    $(this).attr('src', $(this).attr('data-still'));
+    $(this).attr('data-state', 'still');
+  }
+});
+
+//search function...once a new search/topic is input and submit button is clicked..this function add it to the topics array and generate a button
+$('.submit').on('click', function(event) {
+  // get search input and set it to newSearch variable
+  newSearch = $('#topicSearch').val();
+
+  //push newSearch to topics array
+  topics.push(newSearch);
+
+  //call generateButton to generate a button for the new search input
+  generateButton();
+});
+
+//call generateButton function to generate button for the topics array when page load
+generateButton();

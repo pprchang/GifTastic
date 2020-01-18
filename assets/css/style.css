@@ -1,14 +1,22 @@
-.jumbotron,
+h1 {
+  font-family: 'Alex Brush', cursive;
+}
+
 body {
-  background-image: url('../images/background.jpg');
+  font-family: 'Arbutus Slab', serif;
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/d3c0e140374251.5606d92c9b7a2.png');
 }
 
-#startTitle,
-#resultTitle,
-#question {
-  background-image: url('../images/slide.png');
+.btn {
+  margin: 3px;
 }
 
-img {
-  border-radius: 8px;
+.submit {
+  background-color: red;
+  color: white;
+  border: 2px solid white;
+}
+
+.jumbotron {
+  background-image: url(../images/title.jpg);
 }
