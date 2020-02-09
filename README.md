@@ -2,7 +2,7 @@
 This app generate exotic car gif images from the Giphy API.  The user can select an exotic car from a pre-selected list or search an exotic car of their choice.  Once an exotic car is selected or searched, gif images and rating will display.  The user can click on the gif image to pause or play the gif images. 
 
 ## *Link to Live Page*
-(https://pprchang.github.io/TriviaGame/)
+(https://pprchang.github.io/GifTastic/)
 
 ## *Built With*
 
