@@ -7,7 +7,7 @@ This app generate exotic car gif images from the Giphy API.  The user can select
 ## *Built With*
 
 #### Code Editor: 
-Visual Stuido Code (https://code.visualstudio.com/)
+- Visual Stuido Code (https://code.visualstudio.com/)
 
 #### Layout and Styling: 
 - Bootstrap 4 (https://getbootstrap.com/)
